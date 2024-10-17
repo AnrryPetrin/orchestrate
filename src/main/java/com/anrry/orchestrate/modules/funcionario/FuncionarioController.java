@@ -9,10 +9,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.anrry.orchestrate.modules.projeto.DadosProjetoDTO;
+
 @RestController
 @RequestMapping("/funcionarios")
 public class FuncionarioController {
-  private final Funcionario funcionarioService;
+  private final FuncionarioService funcionarioService;
 
   public FuncionarioController(FuncionarioService funcionarioService) {
     this.funcionarioService = funcionarioService;

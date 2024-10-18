@@ -23,7 +23,8 @@ public class SetorService {
     Setor setor = setorRepository.findById(idSetor).orElseThrow(() -> new RuntimeException("Setor não encontrado"));
     List<FuncionarioDTO> funcionarios = setor.getFuncionarios().stream()
         .map(funcionario -> new FuncionarioDTO(funcionario.getNome(),
-            funcionario.getProjeto() != null ? funcionario.getProjeto().getId() : null))
+            funcionario.getProjeto() != null ? funcionario.getProjeto().getId() : null,
+            funcionario.getSetor() != null ? funcionario.getSetor().getId() : null))
         .collect(Collectors.toList());
     return new DadosSetorDTO(setor.getId(), setor.getNome(), funcionarios);
   }

@@ -1,6 +1,7 @@
 package com.anrry.orchestrate.modules.funcionario;
 
 import com.anrry.orchestrate.modules.projeto.Projeto;
+import com.anrry.orchestrate.modules.setor.Setor;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -26,4 +27,8 @@ public class Funcionario {
   @ManyToOne
   @JoinColumn(name = "projeto_id")
   private Projeto projeto;
+
+  @ManyToOne
+  @JoinColumn(name = "setor_id")
+  private Setor setor;
 }

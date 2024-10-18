@@ -12,9 +12,9 @@ import com.anrry.orchestrate.modules.setor.SetorDTO;
 import com.anrry.orchestrate.modules.setor.SetorService;
 
 @SpringBootApplication
-public class ProjectManagementApplication {
+public class OrchestrateApplication {
     public static void main(String[] args) {
-        ApplicationContext context = SpringApplication.run(ProjectManagementApplication.class, args);
+        ApplicationContext context = SpringApplication.run(OrchestrateApplication.class, args);
 
         // Create instances and relationships for testing
         ProjetoService projetoService = context.getBean(ProjetoService.class);

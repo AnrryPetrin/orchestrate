@@ -10,4 +10,5 @@ import lombok.NoArgsConstructor;
 public class FuncionarioDTO {
   private String nome;
   private Integer projetoId;
+  private Integer setorId;
 }

@@ -27,9 +27,10 @@ public class ProjetoService {
   }
 
   public DadosProjetoDTO buscarProjetoPorId(Integer id) {
-    Projeto projeto = projetoRepository.findByIdAndFetchFuncionarios(id);
+    Projeto projeto = projetoRepository.findByIdWithFuncionarios(id);
     List<FuncionarioDTO> funcionarios = projeto.getFuncionarios().stream()
-        .map(funcionario -> new FuncionarioDTO(funcionario.getNome(), funcionario.getProjeto().getId()))
+        .map(funcionario -> new FuncionarioDTO(funcionario.getNome(), funcionario.getProjeto().getId(),
+            funcionario.getSetor() != null ? funcionario.getSetor().getId() : null))
         .collect(Collectors.toList());
     return new DadosProjetoDTO(projeto.getId(), projeto.getNome(), projeto.getDescricao(), funcionarios);
   }

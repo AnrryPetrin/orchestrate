@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.anrry.orchestrate.modules.projeto.DadosProjetoDTO;
+import com.anrry.orchestrate.modules.setor.DadosSetorDTO;
 
 @RestController
 @RequestMapping("/funcionarios")
@@ -25,8 +26,19 @@ public class FuncionarioController {
     funcionarioService.adicionar(funcionarioDTO);
   }
 
+  @GetMapping("/{id}")
+  public FuncionarioDTO buscarFuncionarioPorId(@PathVariable Integer id) {
+    return funcionarioService.buscarFuncionarioPorId(id);
+  }
+
   @GetMapping("/{idFuncionario}/projetos")
   public List<DadosProjetoDTO> buscarProjetos(@PathVariable Integer idFuncionario) {
     return funcionarioService.buscarProjetos(idFuncionario);
   }
+
+  @GetMapping("/{idFuncionario}/setor")
+  public DadosSetorDTO buscarSetor(@PathVariable Integer idFuncionario) {
+    return funcionarioService.buscarSetor(idFuncionario);
+  }
+
 }
